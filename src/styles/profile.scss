@@ -1,0 +1,26 @@
+@import "colors";
+h1 {
+  text-align: center;
+  color: white;
+  font: 500 2.5rem "Roboto";
+  margin-top: 1rem;
+}
+.profileCard {
+  color: white;
+  margin: 3rem;
+  margin-top: 1rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 5px 1fr;
+  gap: "1rem";
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  > hr {
+    width: 4px;
+    background-color: #ffff;
+    border-radius: 2px;
+  }
+}

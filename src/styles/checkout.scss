@@ -1,0 +1,36 @@
+@import "colors";
+
+.checkout {
+  backdrop-filter: blur(10px);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  animation: blurAnimation 0.5s ease-in;
+}
+.card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40vw;
+  animation: popUp 0.5s ease-in;
+}
+h2{
+    text-align: center;
+}
+label{
+    width: 100%;
+}
+@keyframes blurAnimation {
+    from{
+        backdrop-filter: blur(0px);
+    }
+}
+@keyframes popUp {
+    from{
+        opacity: 0;
+    }
+}

@@ -1,0 +1,129 @@
+@import "colors";
+
+.heroImageBg {
+  background-image: url("../assets/HomePageHeroImageShopNest.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  position: relative;
+  > div {
+    background-color: transparentize($color: #fff, $amount: 0.6);
+    padding-top: 2rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 5rem;
+    > div:first-of-type {
+      text-align: center;
+      > h1 {
+        font: 400 3rem "Roboto";
+        color: black;
+      }
+      > p {
+        font: 200 1.5rem "Roboto";
+      }
+    }
+    > div:last-of-type {
+      width: 25vmax;
+      height: 15vmax;
+      margin-bottom: 6vmax;
+      position: relative;
+      > img {
+        position: absolute;
+        width: 15vmax;
+        height: 15vmax;
+        border-radius: 15%;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+        object-fit: cover;
+        transition: all 0.5s;
+        animation: shadow 1s alternate infinite ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+          z-index: 5;
+        }
+      }
+      > :nth-child(1) {
+        top: 0;
+        left: 0;
+      }
+      > :nth-child(2) {
+        top: 4vmax;
+        left: 6vmax;
+        animation-delay: 0.34s;
+      }
+      > :nth-child(3) {
+        top: 8vmax;
+        left: 12vmax;
+        animation-delay: 0.67s;
+      }
+    }
+  }
+}
+
+.arrowDown {
+  position: absolute;
+  bottom: 0px;
+  color: rgb(0, 0, 0);
+  animation: swipeDown 1s linear infinite;
+}
+
+.itemsContainer {
+  display: flex;
+  padding: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.productCard {
+  background-color: $tertiary;
+  width: 200px;
+  margin: 2rem;
+  border-radius: 5px;
+  padding: 2rem;
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  > h4 {
+    margin: 1rem;
+  }
+
+  > button {
+    background-color: $secondarydark;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+.pagination {
+  background-color: $primary;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+@keyframes shadow {
+  to {
+    transform: scale(1.02);
+  }
+}
+@keyframes swipeDown {
+  80% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/app.scss";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import Cart from "./components/Cart";
+import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
+import Profile from "./components/Profile";
+import logo from "./assets/ShopNest Cropped logo(punchy).jpg";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header logoSrc={logo} altText="ShopNest" />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+      <Toaster />
+      <Footer />
+    </Router>
   );
 }
-
 export default App;
