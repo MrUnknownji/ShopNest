@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/MrUnknownji/ShopNest.git/static/css/main.0ed7e823.css",
+    "main.js": "/MrUnknownji/ShopNest.git/static/js/main.f4e7fd72.js",
+    "static/media/st2.jpg": "/MrUnknownji/ShopNest.git/static/media/st2.5fc525e40c02e56c531c.jpg",
+    "static/media/st3.jpg": "/MrUnknownji/ShopNest.git/static/media/st3.3720cb82abf39ee84930.jpg",
+    "static/media/HomePageHeroImageShopNest.jpg": "/MrUnknownji/ShopNest.git/static/media/HomePageHeroImageShopNest.77fd3c1bc8025ccda2c6.jpg",
+    "static/media/st1.jpg": "/MrUnknownji/ShopNest.git/static/media/st1.21b9dd571fa6470ff01c.jpg",
+    "static/media/ShopNest Cropped logo(punchy).jpg": "/MrUnknownji/ShopNest.git/static/media/ShopNest Cropped logo(punchy).3b6b7c62cd47b4a4fcd6.jpg",
+    "index.html": "/MrUnknownji/ShopNest.git/index.html",
+    "main.0ed7e823.css.map": "/MrUnknownji/ShopNest.git/static/css/main.0ed7e823.css.map",
+    "main.f4e7fd72.js.map": "/MrUnknownji/ShopNest.git/static/js/main.f4e7fd72.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0ed7e823.css",
+    "static/js/main.f4e7fd72.js"
+  ]
+}
