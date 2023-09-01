@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AiFillDelete } from "react-icons/ai";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addToCart,
@@ -110,7 +110,7 @@ const CartItem = ({
       <button onClick={() => increment(id)}>+</button>
     </div>
 
-    <AiFillDelete onClick={() => deleteHandler(id)} />
+    <DeleteIcon onClick={() => deleteHandler(id)} />
   </div>
 );
 

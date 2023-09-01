@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  AiFillGithub,
-  AiFillInstagram,
-  AiFillYoutube
-} from "react-icons/ai";
+import {Instagram,GitHub,YouTube} from "@mui/icons-material";
 import logo from "../assets/ShopNest Cropped logo(punchy).jpg";
 
 const Footer = () => {
@@ -28,13 +24,13 @@ const Footer = () => {
 
         <article>
           <a href="https://youtube.com" target="blank">
-            <AiFillYoutube />
+            <YouTube />
           </a>
           <a href="https://www.instagram.com/sandeep_jangid_g" target="blank">
-            <AiFillInstagram />
+            <Instagram />
           </a>
           <a href="https://github.com/MrUnknownji" target="blank">
-            <AiFillGithub />
+            <GitHub />
           </a>
         </article>
       </aside>
