@@ -32,7 +32,7 @@ const Home = () => {
     dispatch(calculatePrice());
     toast.success("Added to cart");
   };
-  
+
   return (
     <div className="home">
       <Card sx={{ backgroundColor: "#512B81" }}>
