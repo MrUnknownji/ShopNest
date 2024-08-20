@@ -62,24 +62,50 @@
   height: 2rem;
   padding: 0px;
   overflow: hidden;
-  >div:first-of-type{
+  > div:first-of-type {
     width: 75%;
   }
 }
 .customSearchAction {
+  height: 2rem;
+  width: 25%;
+  > button {
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     height: 2rem;
-    width: 25%;
-    >button {
-      margin: 0px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap:10px;
-      height: 2rem;
-      border-radius: 0px;
-      font: 200 0.7rem 'Roboto';
-      &:hover{
-        box-shadow: none;
-      }
+    border-radius: 0px;
+    font: 200 0.7rem "Roboto";
+    &:hover {
+      box-shadow: none;
     }
   }
+}
+.notice-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: black;
+  color: white;
+  padding: 0.5rem 0;
+  > h2 {
+    font: 500 1rem "Roboto";
+  }
+  > a {
+    font: 500 0.9rem "Roboto";
+    text-decoration: none;
+    color: rgb(200, 21, 255);
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}

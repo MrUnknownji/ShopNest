@@ -7,10 +7,12 @@ import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 import Profile from "./components/Profile";
 import logo from "./assets/ShopNest Cropped logo(punchy).jpg";
+import NoticeHeader from "./components/NoticeHeader";
 
 function App() {
   return (
     <Router>
+      <NoticeHeader />
       <Header logoSrc={logo} altText="ShopNest" />
       <Routes>
         <Route path="/" element={<Home />} />
