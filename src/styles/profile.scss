@@ -1,26 +1,172 @@
-@import "colors";
-h1 {
-  text-align: center;
-  color: white;
-  font: 500 2.5rem "Roboto";
-  margin-top: 1rem;
+@use "colors" as *;
+@use "sass:color";
+
+.profilePage {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    text-align: center;
+    color: white;
+    font: 700 3rem "Roboto";
+    margin: 2rem 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
 }
+
 .profileCard {
   color: white;
-  margin: 3rem;
-  margin-top: 1rem;
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: 1fr 5px 1fr;
-  gap: "1rem";
-  > div {
+  margin: 1rem auto;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: color.scale($card-bg, $alpha: -20%);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  border: 1px solid $glass;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.5s ease;
+
+  >hr {
+    width: 100%;
+    height: 1px;
+    background-color: $glass;
+    border: none;
+    margin: 1rem 0;
+  }
+}
+
+.profileHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  .avatarContainer {
+    position: relative;
+    margin-bottom: 1rem;
+
+    .cameraIcon {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      background-color: $secondary;
+      padding: 5px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: $secondarydark;
+      }
+    }
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  p {
+    color: $text-muted;
+    font-weight: 300;
+  }
+}
+
+.profileForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: $glass;
+  }
+
+  .icon {
+    background-color: rgba(59, 130, 246, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    color: $secondary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .inputConfig {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 0.2rem;
+
+    label {
+      font-size: 0.8rem;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .customInput {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid $secondary;
+      color: white;
+      font-size: 1.1rem;
+      padding: 5px 0;
+      outline: none;
+      width: 100%;
+      font-family: 'Roboto', sans-serif;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-bottom-color: $accent;
+      }
+    }
   }
-  > hr {
-    width: 4px;
-    background-color: #ffff;
-    border-radius: 2px;
+}
+
+.actionButtons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

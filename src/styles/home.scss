@@ -1,62 +1,92 @@
-@import "colors";
+@use "colors" as *;
+
+.home-card {
+  background: transparent !important;
+}
 
 .heroImageBg {
-  background-image: url("../assets/HomePageHeroImageShopNest.jpg");
+  background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 1)), url("../assets/HomePageHeroImageShopNest.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 90vh;
+  height: 80vh;
   position: relative;
-  > div {
-    background-color: transparentize($color: #fff, $amount: 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .heroImageSubDiv {
     padding-top: 2rem;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0px 5rem;
-    > div:first-of-type {
-      text-align: center;
-      > h1 {
-        font: 400 3rem "Roboto";
-        color: black;
+    backdrop-filter: blur(2px);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 100%);
+
+    .heading {
+      text-align: left;
+      color: white;
+      max-width: 50%;
+
+      h1 {
+        font: 700 4rem "Roboto", sans-serif;
+        background: linear-gradient(to right, #fff, $secondary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
       }
-      > p {
-        font: 200 1.5rem "Roboto";
+
+      p {
+        font: 300 1.5rem "Roboto", sans-serif;
+        color: $text-muted;
       }
     }
-    > div:last-of-type {
+
+    .imageDiv {
       width: 25vmax;
       height: 15vmax;
       margin-bottom: 6vmax;
       position: relative;
-      > img {
+
+      >img {
         position: absolute;
         width: 15vmax;
         height: 15vmax;
-        border-radius: 15%;
-        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
         object-fit: cover;
-        transition: all 0.5s;
-        animation: shadow 1s alternate infinite ease-in-out;
+        transition: all 0.5s ease;
+        animation: float 3s ease-in-out infinite;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+
         &:hover {
-          transform: scale(1.1);
-          z-index: 5;
+          transform: scale(1.05) rotate(2deg);
+          z-index: 10;
+          border-color: $secondary;
         }
       }
+
       > :nth-child(1) {
         top: 0;
         left: 0;
+        z-index: 3;
       }
+
       > :nth-child(2) {
-        top: 4vmax;
-        left: 6vmax;
-        animation-delay: 0.34s;
+        top: 3vmax;
+        left: 3vmax;
+        z-index: 2;
+        animation-delay: 1s;
       }
+
       > :nth-child(3) {
-        top: 8vmax;
-        left: 12vmax;
-        animation-delay: 0.67s;
+        top: 6vmax;
+        left: 6vmax;
+        z-index: 1;
+        animation-delay: 2s;
       }
     }
   }
@@ -64,9 +94,10 @@
 
 .arrowDown {
   position: absolute;
-  bottom: 0px;
-  color: rgb(0, 0, 0);
-  animation: swipeDown 1s linear infinite;
+  bottom: 20px;
+  color: white !important;
+  animation: swipeDown 1.5s ease-in-out infinite;
+  opacity: 0.8;
 }
 
 .itemsContainer {
@@ -74,56 +105,102 @@
   padding: 3rem;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 2rem;
   position: relative;
 }
 
 .productCard {
-  background-color: $tertiary;
-  width: 200px;
-  margin: 2rem;
-  border-radius: 5px;
-  padding: 2rem;
-  transition: all 0.5s;
+  background-color: $card-bg;
+  backdrop-filter: blur(10px);
+  width: 240px;
+  margin: 1rem;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
-  > img {
+  >img {
     width: 100%;
-    height: 100%;
+    height: 200px;
     object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s;
   }
 
-  > h4 {
-    margin: 1rem;
+  >p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: $text-main;
+    margin-bottom: 0.5rem;
   }
 
-  > button {
-    background-color: $secondarydark;
+  >h4 {
+    margin: 0.5rem 0;
+    font-size: 1.25rem;
+    color: $secondary;
+    font-weight: 700;
+  }
+
+  >button {
+    width: 100%;
+    margin-top: auto;
+    border-radius: 8px;
+    text-transform: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    box-shadow: none;
   }
 
   &:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.1);
+
+    >img {
+      transform: scale(1.02);
+    }
   }
 }
+
 .pagination {
-  background-color: $primary;
+  background-color: transparent !important;
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
   color: white;
 }
 
-@keyframes shadow {
-  to {
-    transform: scale(1.02);
+@keyframes float {
+  0% {
+    transform: translateY(0px);
   }
-}
-@keyframes swipeDown {
-  80% {
-    transform: translateY(10px);
+
+  50% {
+    transform: translateY(-10px);
   }
+
   100% {
     transform: translateY(0px);
+  }
+}
+
+@keyframes swipeDown {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
   }
 }

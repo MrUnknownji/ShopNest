@@ -10,10 +10,8 @@ import {
 } from "@mui/icons-material";
 import {
   Button,
-  Card,
   TextField,
   Autocomplete,
-  CardActions,
 } from "@mui/material";
 import productList from "./productList";
 
@@ -75,13 +73,7 @@ const Header = ({ logoSrc, altText }) => {
         </Link>
       </div>
       <div>
-        <Card
-          className="customSearchCard"
-          variant={"elevation"}
-          sx={{
-            borderRadius: "1rem",
-          }}
-        >
+        <div className="customSearchCard">
           <ThemeProvider theme={autocompleteTheme}>
             <Autocomplete
               disablePortal
@@ -89,26 +81,30 @@ const Header = ({ logoSrc, altText }) => {
               options={autocompleteOptions}
               fullWidth
               onChange={handleAutocompleteChange}
-              renderInput={(params) => <TextField {...params} label="Search" />}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  placeholder="Search Products..."
+                  hiddenLabel
+                  variant="standard"
+                  InputProps={{
+                    ...params.InputProps,
+                    disableUnderline: true,
+                    style: { color: 'white' }
+                  }}
+                />
+              )}
             />
           </ThemeProvider>
-          <CardActions
-            className="customSearchAction"
-            sx={{ justifyContent: "center", margin: "0px", padding: "0px" }}
+          <Button
+            variant="text"
+            color="primary"
+            onClick={handleSearchButtonClick}
+            className="searchButton"
           >
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleSearchButtonClick}
-              sx={{
-                boxShadow: "none",
-              }}
-            >
-              <SearchIcon className="searchIcon" />
-              <h2>Search</h2>
-            </Button>
-          </CardActions>
-        </Card>
+            <SearchIcon />
+          </Button>
+        </div>
       </div>
       <div>
         {!isHomePage && (

@@ -17,7 +17,7 @@ import st3 from "../assets/st2.jpg";
 import productList from "./productList";
 
 const Home = () => {
-  const itemsPerPage = 10;
+  const itemsPerPage = 8;
   const totalItems = productList.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,13 +35,12 @@ const Home = () => {
 
   return (
     <div className="home">
-      <Card sx={{ backgroundColor: "#512B81" }}>
+      <Card className="home-card" sx={{ backgroundColor: "transparent", boxShadow: "none" }}>
         <div className="heroImageBg">
           <div className="heroImageSubDiv">
             <div className="heading">
               <h1>Welcome to ShopNest</h1>
-              <br />
-              <p>Best Shopping plateform for all your needs</p>
+              <p>Best Shopping platform for all your needs</p>
             </div>
             <div className="imageDiv">
               <img src={st2} alt="" />
@@ -67,26 +66,15 @@ const Home = () => {
                 handler={addToCartHandler}
               />
             ))}
-          {currentPage === totalPages && (
-            <div
-              style={{
-                position: "absolute",
-                bottom: "5px",
-                color: "white",
-                fontSize: "1.5rem",
-              }}
-            >
-              More Coming Soon...
-            </div>
-          )}
         </div>
-        <CardActions sx={{ justifyContent: "center", marginTop: "16px" }}>
+        <CardActions sx={{ justifyContent: "center", marginTop: "16px", paddingBottom: "2rem" }}>
           <ThemeProvider theme={paginationTheme}>
             <Pagination
               className="pagination"
               count={totalPages}
               page={currentPage}
               onChange={handlePageChange}
+              size="large"
             />
           </ThemeProvider>
         </CardActions>
@@ -103,6 +91,10 @@ const ProductCard = ({ name, id, price, handler, imgSrc }) => (
     <Button
       variant="contained"
       onClick={() => handler({ name, price, id, quantity: 1, imgSrc })}
+      sx={{
+        backgroundColor: "#2563eb",
+        "&:hover": { backgroundColor: "#1d4ed8" },
+      }}
     >
       Add to Cart
     </Button>
@@ -120,9 +112,17 @@ const paginationTheme = createTheme({
           "& button": {
             color: "white",
             borderColor: "white",
+            fontSize: "1.1rem",
+            "&:hover": {
+              backgroundColor: "rgba(255,255,255,0.1)",
+            }
           },
           "& .MuiPaginationItem-root.Mui-selected": {
-            backgroundColor: "#4477CE",
+            backgroundColor: "#2563eb",
+            color: "white",
+            "&:hover": {
+              backgroundColor: "#1d4ed8",
+            }
           },
         },
       },
